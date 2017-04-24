@@ -5,11 +5,14 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next muse use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
 
 
 
@@ -27,9 +30,12 @@
 
 
 
+
+
+
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +69,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Self-Driving Car,鄉民看科技," />
@@ -77,7 +83,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/Mymy_Fav_32x32.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/Mymy_Fav_32x32.png?v=5.1.1" />
 
 
 
@@ -126,7 +132,7 @@ How - 自駕車是如何運作的
 <meta property="og:image" content="http://i.imgur.com/YnBIFs8.png">
 <meta property="og:image" content="http://i.imgur.com/VPaPiCH.png">
 <meta property="og:image" content="http://i.imgur.com/5Q4kR8R.png">
-<meta property="og:updated_time" content="2017-04-20T18:10:00.000Z">
+<meta property="og:updated_time" content="2017-04-24T18:18:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="來略懂自駕車一發吧！GoGoGo！">
 <meta name="twitter:description" content="[ 前言 ]敝人在下小弟我並沒有自駕車領域的工作經驗，以下只是#我的觀察啦。希望讀者能藉此略懂自駕車（畢竟我也只有略懂），有錯的地方歡迎指正。
@@ -141,26 +147,37 @@ How - 自駕車是如何運作的
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="https://mymykuo.github.io/2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/"/>
 
-  <title> 來略懂自駕車一發吧！GoGoGo！ | Mymy Some Nothing </title>
+
+
+
+
+  <title>來略懂自駕車一發吧！GoGoGo！ | Mymy Some Nothing</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -168,14 +185,18 @@ How - 自駕車是如何運作的
   
 
 
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-97745651-1', 'auto');
   ga('send', 'pageview');
 </script>
+
+
 
 
 
@@ -190,29 +211,33 @@ How - 自駕車是如何運作的
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Mymy Some Nothing</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mymy Some Nothing</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我的一些重要小事</p>
+      
   </div>
-  <p class="site-subtitle">我的一些重要小事</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -252,6 +277,16 @@ How - 自駕車是如何運作的
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
@@ -269,6 +304,8 @@ How - 自駕車是如何運作的
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -282,13 +319,23 @@ How - 自駕車是如何運作的
     
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://mymykuo.github.io/2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mymy Kuo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mymy Some Nothing">
+    </span>
 
     
       <header class="post-header">
@@ -307,24 +354,36 @@ How - 自駕車是如何運作的
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-04-19T01:15:54+08:00" content="2017-04-19">
-              2017-04-19
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-19T01:15:54+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/鄉民看科技/" itemprop="url" rel="index">
                     <span itemprop="name">鄉民看科技</span>
                   </a>
@@ -332,7 +391,6 @@ How - 自駕車是如何運作的
 
                 
                 
-
               
             </span>
           
@@ -340,24 +398,30 @@ How - 自駕車是如何運作的
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -633,15 +697,26 @@ How - 自駕車是如何運作的
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/Self-Driving-Car/" rel="tag">#Self-Driving Car</a>
+            <a href="/tags/Self-Driving-Car/" rel="tag"># Self-Driving Car</a>
           
-            <a href="/tags/鄉民看科技/" rel="tag">#鄉民看科技</a>
+            <a href="/tags/鄉民看科技/" rel="tag"># 鄉民看科技</a>
           
         </div>
+      
+
+      
+        
       
 
       
@@ -656,7 +731,10 @@ How - 自駕車是如何運作的
     <div class="post-spread">
       
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58f7a9d537021f1d" async = "async" ></script>
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58f7a9d537021f1d" async = "async" ></script>
+</div>
+
       
     </div>
   </div>
@@ -672,7 +750,7 @@ How - 自駕車是如何運作的
       <div id="disqus_thread">
         <noscript>
           Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
         </noscript>
       </div>
     
@@ -707,34 +785,43 @@ How - 自駕車是如何運作的
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
                alt="Mymy Kuo" />
           <p class="site-author-name" itemprop="name">Mymy Kuo</p>
-          <p class="site-description motion-element" itemprop="description">上面是一個嘴賤但中肯、瑣事觀察系、跳嘻哈的偽真宅軟體工程師</p>
+           
+              <p class="site-description motion-element" itemprop="description">上面是一個嘴賤但中肯、瑣事觀察系、跳嘻哈的偽陽光真宅軟體工程師</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">posts</span>
-            </a>
-          </div>
 
           
-            <div class="site-state-item site-state-categories">
-              
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">categories</span>
-              
+                <span class="site-state-item-name">posts</span>
+              </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
@@ -761,19 +848,29 @@ How - 自駕車是如何運作的
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">[ 前言 ]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#為什麼自駕車很重要呢"><span class="nav-number">2.</span> <span class="nav-text">[ 為什麼自駕車很重要呢 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自駕車可以救大家的命"><span class="nav-number">2.1.</span> <span class="nav-text">自駕車可以救大家的命</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自駕車可以節省大家的時間"><span class="nav-number">2.2.</span> <span class="nav-text">自駕車可以節省大家的時間</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自駕車可以賺好多好多錢rrr"><span class="nav-number">2.3.</span> <span class="nav-text">自駕車可以賺好多好多錢rrr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什麼是自駕車"><span class="nav-number">3.</span> <span class="nav-text">[ 什麼是自駕車 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自駕車如何感知環境"><span class="nav-number">3.1.</span> <span class="nav-text">自駕車如何感知環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自動駕駛時不需什麼人為操作"><span class="nav-number">3.2.</span> <span class="nav-text">自動駕駛時不需什麼人為操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SAE-自駕車等級分類表"><span class="nav-number">3.3.</span> <span class="nav-text">SAE 自駕車等級分類表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自駕車是如何運作的"><span class="nav-number">4.</span> <span class="nav-text">[ 自駕車是如何運作的 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#後裝市場的-Mobileye-Level-0"><span class="nav-number">4.1.</span> <span class="nav-text">後裝市場的 Mobileye - Level 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前裝市場的-Mobileye-Level-1"><span class="nav-number">4.2.</span> <span class="nav-text">前裝市場的 Mobileye - Level 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tesla-Autopilot-Level-2-3"><span class="nav-number">4.3.</span> <span class="nav-text">Tesla Autopilot - Level 2~3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Waymo-Level-4-5"><span class="nav-number">4.4.</span> <span class="nav-text">Google Waymo - Level 4~5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tesla-vs-Google"><span class="nav-number">4.5.</span> <span class="nav-text">Tesla vs Google</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#總結"><span class="nav-number">5.</span> <span class="nav-text">[ 總結 ]</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -796,6 +893,7 @@ How - 自駕車是如何運作的
   <span class="author" itemprop="copyrightHolder">Mymy Kuo</span>
 </div>
 
+
 <div class="powered-by">
   Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
@@ -807,15 +905,20 @@ How - 自駕車是如何運作的
   </a>
 </div>
 
+
         
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -838,81 +941,116 @@ How - 自駕車是如何運作的
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'mymykuo';
-      var disqus_identifier = '2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/';
-      var disqus_title = "來略懂自駕車一發吧！GoGoGo！";
-      var disqus_url = 'https://mymykuo.github.io/2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
-      
-    </script>
-  
 
 
 
 
   
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://mymykuo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://mymykuo.github.io/2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/';
+          this.page.identifier = '2017/04/19/Lets-know-a-little-bit-of-Self-Driving-Car/';
+          this.page.title = '來略懂自駕車一發吧！GoGoGo！';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mymykuo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
   
 
   
